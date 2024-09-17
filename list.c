@@ -79,8 +79,7 @@ u8 List_insert(List* self, u16 at, u0* element)
 
 u8 List_remove(List* self, u16 at, u0** element)
 {
-    if ( self->length <= 0 
-    ||   self->length <= at )
+    if (self->length <= at)
         return FAIL;
 
     u0* value = self->data[at];
@@ -98,7 +97,7 @@ u8 List_remove(List* self, u16 at, u0** element)
 
 u8 List_get(List* self, u16 at, u0** element)
 {
-    if (at >= self->length)
+    if (self->length <= at)
         return FAIL;
 
     *element = self->data[at];
@@ -108,7 +107,7 @@ u8 List_get(List* self, u16 at, u0** element)
 
 u8 List_set(List* self, u16 at, u0* element)
 {
-    if (at >= self->length)
+    if (self->length <= at)
         return FAIL;
 
     self->data[at] = element;
